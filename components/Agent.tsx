@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { vapi } from "@/lib/vap.sdk";
 import { interviewer } from "@/constants";
 import { createFeedback } from "@/lib/actions/general.action";
+import { Message } from "ai";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
