@@ -100,7 +100,8 @@ const Agent = ({
 
       if (success && id) {
         router.push(`/interview/${interviewId}/feedback`);
-      } else {
+      } 
+      else {
         console.log("Error saving feedback");
         router.push("/");
       }
@@ -125,16 +126,14 @@ const Agent = ({
           userid: userId,
         },
       });
-    } else {
+    } 
+    else {
       let formattedQuestions = "";
       if (questions) {
-        formattedQuestions = questions
-          .map((question) => `- ${question}`)
-          .join("\n");
+        formattedQuestions = questions.map((question) => `- ${question}`).join("\n");
       }
 
-      await vapi.start(interviewer, {
-        variableValues: {
+      await vapi.start(interviewer, {variableValues: {
           questions: formattedQuestions,
         },
       });
