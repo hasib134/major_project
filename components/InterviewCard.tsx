@@ -9,7 +9,7 @@ import { cn, getRandomInterviewCover } from "@/lib/utils";
 import { getFeedbackByInterviewId } from "@/lib/actions/general.action";
 
 const InterviewCard = async ({
-  id,
+  interviewId,
   userId,
   role,
   type,
@@ -17,9 +17,9 @@ const InterviewCard = async ({
   createdAt,
 }: InterviewCardProps) => {
   const feedback =
-    userId && id
+    userId && interviewId
       ? await getFeedbackByInterviewId({
-          id,userId,
+          interviewId,userId,
         })
       : null;
 
@@ -94,8 +94,8 @@ const InterviewCard = async ({
             <Link
               href={
                 feedback
-                  ? `/interview/${id}/feedback`
-                  : `/interview/${id}`
+                  ? `/interview/${interviewId}/feedback`
+                  : `/interview/${interviewId}`
               }
             >
               {feedback ? "Check Feedback" : "View Interview"}
